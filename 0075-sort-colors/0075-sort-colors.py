@@ -5,6 +5,8 @@ class Solution:
         """
         
         """
+        Time: O(n) | Space: O(1)
+        
         1. Use for loop to group the 0s to the left.
         2. Iterate over the array if num is > 0: break.
         3. Set left pointer to i and right pointer to len(nums) -1
