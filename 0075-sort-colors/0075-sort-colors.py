@@ -35,13 +35,5 @@ class Solution:
                 else:
                     nums[r], nums[l] = nums[l], nums[r]
                     l += 1
-                    r -= 1
-                    
-                
-        
-                
-            
-        
-        
-                
+                    r -= 1            
         
