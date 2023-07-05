@@ -1,0 +1,39 @@
+class Solution:
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        
+        """
+        Edge case.
+        If the product of the row and col of original matrix != the product of r and c: return mat.
+        
+        1. Create a new matrix of size r, c.
+        2. Initialize pos(0, 0) to start traversal in the new matrix at the first index.
+        3. Fill up the elements in the new matrix with the original matrix.
+        """
+                
+        ROW, COL = len(mat), len(mat[0])
+        
+        # Edge case
+        if (r * c) != (ROW * COL): return mat
+        
+        # Create a new matrix of size r,c
+        matrix = [[0 for _ in range(c)] for _ in range(r)]
+        row, col = 0, 0
+        
+        # Traverse the matrix and copy the element to the new matrix
+        
+        for i in range(ROW):
+            for j in range(COL):
+                matrix[row][col] = mat[i][j]
+                col += 1
+                
+                if col == c:
+                    col = 0
+                    row += 1
+                    
+        return matrix
+        
+        
+        
+        
+                
+                

@@ -1,0 +1,23 @@
+class Solution:
+    def replaceElements(self, arr: List[int]) -> List[int]:
+        
+        """
+        1. Start the traversal from the last but one element in the array.
+        2. Set the last element to -1 and compare with current element.
+        
+        [18, 6, 6, 6, 1, -1]
+        """
+        
+        # Time: O(n) | Space: O(1)
+       
+        n = len(arr)
+        max_right = arr[n - 1]
+        arr[n - 1] = -1
+        
+        for i in range(n - 2, -1, -1):
+            temp = arr[i]
+            arr[i] = max_right
+            max_right = max(max_right, temp)
+            
+        return arr
+        

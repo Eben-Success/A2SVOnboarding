@@ -1,0 +1,15 @@
+class Solution:
+    def countDistinctIntegers(self, nums: List[int]) -> int:
+        
+        reversed_num = []
+        
+        for num in nums:
+            reverse_num = 0
+            while num > 0:
+                last_digit = num % 10
+                reverse_num = reverse_num * 10 + last_digit
+                num //= 10
+            reversed_num.append(reverse_num)
+            
+        return len(set(nums + reversed_num))
+        

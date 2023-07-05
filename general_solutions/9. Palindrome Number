@@ -1,0 +1,13 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        
+        """
+        1. Convert the integer to string.
+        2. Check if the ascending order == descending order.
+        """
+        
+        
+        return True if str(x) == str(x)[::-1] else False
+        
+       
+        

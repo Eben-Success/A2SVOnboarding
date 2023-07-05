@@ -1,0 +1,31 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+from collections import defaultdict
+
+hashmap = defaultdict(list)
+res = []
+
+n, m = list(map(int, input().split()))
+
+
+for _ in range(n):
+    group_a = input().split()
+    
+    res.append(group_a)
+# print(res)
+    
+for idx, string_var in enumerate(res):
+    hashmap[str(string_var)].append(idx + 1)
+    
+# print(hashmap)
+    
+    
+    
+for _ in range(m):
+    group_b = str(input().split())
+    
+    if group_b in hashmap:
+        ans = " ".join(str(elem) for elem in hashmap[group_b])
+        print(ans)
+    else:
+        print(-1)

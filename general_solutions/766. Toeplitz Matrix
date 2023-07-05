@@ -1,0 +1,18 @@
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        
+        """
+        Time: O(n*m): row and columns.
+        Space: O(1)
+        """
+        
+        """
+        1. Check if the element in the current cell == element at the top-left.
+        """
+        
+        for c in range(len(matrix[0])):
+            for r in range(len(matrix)):
+                if r > 0 and c > 0 and matrix[r][c] != matrix[r-1][c-1]:
+                    return False
+        return True
+        

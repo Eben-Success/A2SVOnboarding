@@ -1,0 +1,12 @@
+class Solution:
+    def largestPerimeter(self, nums: List[int]) -> int:
+        
+        # sort in descending order
+        nums.sort(reverse=True)
+        
+        # Iterate through the array 3 by 3 and check
+        # if the first element is less than the next two element.
+        for i in range(len(nums) - 2):
+            if nums[i] < nums[i+1] + nums[i+2]:
+                return nums[i] + nums[i+1] + nums[i+2]
+        return 0

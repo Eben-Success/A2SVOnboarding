@@ -1,0 +1,19 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+res = []
+
+value = input().split()
+
+n_student = int(value[0])
+n_subject = int(value[1])
+
+for _ in range(n_subject):
+    subject = list(map(float, input().split()))
+    
+    res += [subject]
+
+zipped = zip(*res)
+
+for scores in zipped:
+    average = (sum(scores) / len(scores))
+    print(average)

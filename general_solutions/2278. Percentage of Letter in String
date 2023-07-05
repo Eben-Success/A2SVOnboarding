@@ -1,0 +1,17 @@
+class Solution:
+    def percentageLetter(self, s: str, letter: str) -> int:
+        
+        """
+        1. Count the occurences of letter in s.
+        2. Find the percentage in int()
+        """
+        
+        res = 0
+        n = len(s)
+        
+        for char in s:
+            if char == letter:
+                res += 1
+                
+        return int((res / n) * 100)
+        

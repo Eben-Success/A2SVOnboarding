@@ -1,0 +1,16 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import defaultdict
+
+n = int(input())
+hashmap = defaultdict(int)
+
+for _ in range(n):
+    
+    word = "".join(input().split())
+    hashmap[word] += 1
+    
+print(len(hashmap.keys()))
+
+values_to_string = map(str, hashmap.values())
+
+print(" ".join(values_to_string))

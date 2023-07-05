@@ -1,0 +1,9 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+n_english = int(input())
+english_student = set(map(int, input().split()))
+
+n_french = int(input())
+french_student = set(map(int, input().split()))
+
+print(len(english_student.difference(french_student)))

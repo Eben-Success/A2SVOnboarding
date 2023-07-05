@@ -1,0 +1,32 @@
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        
+        # USING SIEVE OF ERATOSTHENES
+        
+        """
+        1. If n is less or equal to 2: return 0
+        2. Create a Sieve of (n + 1), mark all element as True.
+        3. Mark the fisrt two elements in the sieve as False.
+        4. Initialize a prime array to store the prime number.
+        5. For each prime number, find all it's multiples from n and mark them as False.
+        6. Repeat this for (n//2)
+        7. If a prime number is found, increment prime_count by 1
+        8. Return prime_count
+        """
+        
+        if n <= 2:
+            return 0
+        
+        sieve = [True] * (n + 1)
+        prime_count = 0
+        prime = []
+        
+        for num in range(2, n):
+            if sieve[num]:
+                prime_count += 1
+                prime.append(num)
+                
+                for multiples in range(num * num, n + 1, num):
+                    sieve[multiples] = False
+                    
+        return prime_count

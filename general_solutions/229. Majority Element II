@@ -1,0 +1,24 @@
+from collections import Counter
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        
+        hashmap = Counter(nums)
+        
+        res = []
+        
+        n = len(nums)
+        
+        check = n // 3
+        
+        for key, value in hashmap.items():
+            if value > check:
+                res.append(key)
+                
+        return res
+    
+    
+       
+        
+        
+        

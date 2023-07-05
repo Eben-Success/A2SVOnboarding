@@ -1,0 +1,31 @@
+from collections import defaultdict
+
+if __name__ == '__main__':
+    
+    res = []
+    ans = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        
+        
+        """
+        1. Get [name, score]
+        2. Sorted by score in descending order
+        """
+        
+        res.append([name, score])
+        
+        
+    hashmap = defaultdict(list)
+    
+    for elem in res:
+        key, value = elem
+        hashmap[value].append(key)
+        
+    hashmap = dict(sorted(hashmap.items(), key=lambda x: x[0]))
+        
+    names = (sorted(list(hashmap.values())[1]))
+    
+    for name in names:
+        print(name)

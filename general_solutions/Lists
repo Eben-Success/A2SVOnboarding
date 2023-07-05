@@ -1,0 +1,28 @@
+if __name__ == '__main__':
+    N = int(input())
+    res = []
+
+    for _ in range(N):
+        operation = input().strip().split()
+
+        if operation[0] == "insert":
+            _, idx, num = operation
+            res.insert(int(idx), int(num))
+
+        if operation[0] == "remove":
+            # print(operation)
+            _, num = operation
+            res.remove(int(operation[1]))
+
+        if operation[0] == "append":
+            _, num = operation
+            res.append(int(num))
+
+        if operation[0] == "sort":
+            res.sort()
+
+        if operation[0] == "reverse":
+            res.reverse()
+
+        if operation[0] == "print":
+            print(res)

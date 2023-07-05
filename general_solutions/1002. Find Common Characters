@@ -1,0 +1,22 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        
+        """
+        Time: O(n * m)
+        Space: O(n)
+        """
+        
+        first_word = list(words[0])
+        
+        
+        for i in range(1, len(words)):
+            common_char = []
+            
+            for char in words[i]:
+                if char in first_word:
+                    common_char.append(char)
+                    first_word.remove(char)
+            first_word = common_char
+      
+        return first_word
+            

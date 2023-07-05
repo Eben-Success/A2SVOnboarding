@@ -1,0 +1,26 @@
+class Solution:
+    def smallestEvenMultiple(self, n: int) -> int:
+        
+        """
+        2:2,4,6,8
+        3:3,6,9,12
+        
+        Solution.
+        Find the multiples of n.
+        And divide by 2 if it's even.
+        break and return that number.
+        That is the smallest multiple of 2.
+        """
+        
+        i = 1
+        
+        while True:
+            multiple = n * i
+            if multiple % 2 == 0:
+                break
+            i += 1
+        
+        
+        return multiple
+        
+        

@@ -1,0 +1,18 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+set_a = set(map(int, input().split()))
+
+n = int(input())
+
+res = []
+
+for _ in range(n):
+    set_b = set(map(int, input().split()))
+    
+    if not set_b.issubset(set_a) or set_a == set_b:
+        res.append(False)
+        
+    else:
+        res.append(True)
+        
+print(all(res))

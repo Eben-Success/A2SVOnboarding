@@ -1,0 +1,101 @@
+
+A - Boy or Girl
+value = set(input())
+ 
+if len(value) % 2 == 0:
+    print("CHAT WITH HER!")
+else:
+    print("IGNORE HIM!")
+
+B. Average Numbers
+n = int(input())
+ 
+value = list(map(int, input().split()))
+ 
+mean = sum(value) / len(value)
+ 
+res = []
+num_means = 0
+for num in range(len(value)):
+    if value[num] == mean:
+        num_means += 1
+        res.append(num + 1)
+ 
+print(num_means)
+print(*res)
+
+
+
+C - Coins
+t = int(input())
+ 
+for _ in range(t):
+    n, k = map(int, input().split())
+    if n % 2 == 0 or (n - k) % 2 == 0:
+        print("YES")
+    else:
+        print("NO")
+
+
+
+
+D. Present from Lena
+
+n = int(input())
+
+
+def print_num(start, end, step):
+    for i in range(start, end, step):
+        spaces = " " * (2 * (n - i))
+        digit = " ".join(str(i) for i in range(i))
+        
+        if i == 0:
+            print(spaces + str(i))
+        else:
+            print(spaces + digit + " " + str(i) + " " + digit[::-1])
+
+print_num(start=0, end=n+1, step=1)
+print_num(start=n-1, end=-1, step=-1)
+
+
+
+E - Fall Down
+t = int(input())
+
+for _ in range(t):
+    n, m = list(map(int, input().split()))
+    
+    matrix = []
+    for _ in range(n):
+        row = list(map(str, input()))
+        matrix.append(row)
+
+    def move_down(matrix, r, c):
+        cur_row = r
+        for next_row in range(r + 1, n):
+            if matrix[next_row][c] == ".":
+                matrix[next_row][c], matrix[cur_row][c] = matrix[cur_row][c], matrix[next_row][c]
+                cur_row = next_row
+            else:
+                break
+
+    for c in range(m):
+        for r in range(n - 1, -1, -1):
+            cell = matrix[r][c]
+
+            if cell == ".":
+                continue
+            elif cell == "o":
+                continue
+            else:
+                move_down(matrix, r, c)
+
+    for row in matrix:
+        print("".join(row))
+    print()
+
+
+
+
+
+

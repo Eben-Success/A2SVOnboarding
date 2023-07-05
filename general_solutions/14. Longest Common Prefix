@@ -1,0 +1,30 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        
+        """
+        1. Initialize a variable: prefix = []
+        2. If not strs: return ""
+        3. Iterate over the first string in strs array.
+        3. Iterate over the remaining strings.
+        4. If i at the first string == i at the other strs, 
+        5. Append it to prefix.
+        6. Else return prefix
+        """
+        
+        if not strs:
+            return ""
+        
+        prefix = []
+        
+        for i in range(len(strs[0])):
+            for j in range(1, len(strs)):
+                if i >= len(strs[j]) or strs[j][i] != strs[0][i]:
+                    return "".join(prefix)
+            prefix.append(strs[0][i])
+            
+        return "".join(prefix)
+            
+        
+            
+        
+        

@@ -1,0 +1,35 @@
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        
+        """
+        Time Complexity: O(nlogn)
+        n: due to n iterations.
+        logn: due to sorting.
+        
+        Space Complexity: O(n)
+        Due to the use of auxillary memory
+        """
+        
+        """
+        1. Separate the matches into winners and losers.
+        2. For all players who haven't lost match, set(winners) - set(losers).
+        3. For the occurances of all the losers whose count is 1.
+        """
+        
+        losers = []
+        winners = []
+        
+        for contest in matches:
+            winner, loser = contest
+            winners.append(winner)
+            losers.append(loser)
+            
+        win_one = sorted(set(winners) - set(losers))
+        
+        hashmap = Counter(losers)
+        
+        lost_one = sorted([key for key, value in hashmap.items() if value == 1])
+        
+        return [win_one, lost_one]
+    
+    

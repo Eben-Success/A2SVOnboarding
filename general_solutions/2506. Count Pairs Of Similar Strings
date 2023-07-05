@@ -1,0 +1,25 @@
+class Solution:
+    def similarPairs(self, words: List[str]) -> int:
+        
+        """
+        1. Use two pointers to compare the keys of the words.
+        2. If their keys are the same, add 1 to count.
+        3. Return count.
+        """
+        
+        """
+        Time Complexity: O(n^2): nested for loops
+        Space Complexity: O(n): the use of hashmaps
+        """
+        
+        count = 0
+        
+        for i in range(len(words)):
+            for j in range(i+1, len(words)):
+                first_word = Counter(words[i])
+                second_word = Counter(words[j])
+
+                if first_word.keys() == second_word.keys():
+                    count += 1
+                    
+        return count

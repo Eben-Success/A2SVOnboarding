@@ -1,0 +1,36 @@
+class Solution:
+    def matrixBlockSum(self, mat: List[List[int]], k: int) -> List[List[int]]:
+        
+        """
+        1. Create a new matrix of size == mat
+        2. Iterate over mat and get the valid range.
+        3. Iterate over the valid range.
+        4. Add its sum to the new matrix
+        """
+        
+        # Time: O(n*m * (r*c)) | Space: O(n): creation of the matrix
+        
+        n, m = len(mat), len(mat[0])
+        
+        # Create a new matrix of size == mat
+        ans = [[0 for _ in range(m)] for _ in range(n)]
+        
+        # Traverse the mat
+        for i in range(n):
+            for j in range(m):
+                get_sum = 0
+                
+                # calculate the valid indices for row
+                start_row = max(i - k, 0) 
+                end_row = min(i + k, n - 1)
+                
+                # calculate the valid indices for col
+                start_col = max(j - k , 0)
+                end_col = min(j+k, m - 1)
+                
+                for r in range(start_row, end_row + 1):
+                    for c in range(start_col, end_col + 1):
+                        get_sum += mat[r][c]
+                ans[i][j] = get_sum
+                
+        return ans

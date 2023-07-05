@@ -1,0 +1,28 @@
+class Solution:
+    def average(self, salary: List[int]) -> float:
+        
+        # Solution 1
+#         salary.sort()
+#         expected_salary = salary[1:-1]
+        
+#         return (sum(expected_salary) / len(expected_salary))
+    
+    
+        # Solution 2
+        
+        salary.sort()
+        l, r = 1, len(salary) - 2
+        
+        avg_len = len(salary) - 2
+        res = 0
+        
+        while l < r:
+            res += salary[l]
+            l += 1
+            res += salary[r]
+            r -= 1
+            
+        if l == r:
+            res += salary[l]
+        
+        return res / avg_len

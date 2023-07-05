@@ -1,0 +1,25 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+from collections import OrderedDict
+
+n = int(input())
+hash_item = OrderedDict()
+res = []
+for _ in range(n):
+    value = input().split()
+    item_name = value[:-1]
+    item_price = int(value[-1])
+
+    item_name = " ".join(item_name)
+    
+    if item_name not in hash_item:
+        hash_item[item_name] = item_price
+    else:
+        hash_item[item_name] += item_price
+    
+for item_name, item_price in hash_item.items():
+    print(item_name, item_price)
+    
+    

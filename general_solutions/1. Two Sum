@@ -1,0 +1,22 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+        """
+        1. Create a hashmap.
+        2. Add the elements in the hashmap.
+        3. If target - num in hashmap
+        4. Return the index of that num and the index of the difference.
+        
+        {0: 2, 1: 7, 2: 11, ...}
+        """
+        
+        hashmap = {}
+        
+        for idx, num in enumerate(nums):
+            diff = target - num
+            
+            if diff in hashmap:
+                return [idx, hashmap[diff]]
+            
+            hashmap[num] = idx
+          

@@ -1,0 +1,18 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+n_shoes = int(input())
+
+all_shoes = list(map(int, input().split()))
+
+n_cust = int(input())
+
+res = []
+ans = 0
+for _ in range(n_cust):
+    shoe_price = list(map(int, input().split()))
+    
+    if shoe_price[0] in all_shoes:
+        ans += shoe_price[1]
+        all_shoes.remove(shoe_price[0])
+    
+print(ans)

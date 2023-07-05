@@ -1,0 +1,33 @@
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        
+        """
+        1. Create two sets. One to store rows and one to store cols.
+        2. Iterate over row_set, and set the rows to 0s.
+        3. Iterate over col_set, and set the cols to 0s.
+        """
+        
+        # Time: O(n^2) | Space: O(n + m): col_set and row_set
+        
+        row_set = set()
+        col_set = set()
+        
+        # Traverse the matrix and add r and c to row_set and col_set if 0
+        for r in range(len(matrix)):
+            for c in range(len(matrix[0])):
+                if matrix[r][c] == 0:
+                    row_set.add(r)
+                    col_set.add(c)
+                    
+        # Traverse the row_set and set the rows to 0s
+        for row in row_set:
+            for c in range(len(matrix[0])):
+                matrix[row][c] = 0
+                
+        # Traverse the col_set and set the cols to 0s
+        for col in col_set:
+            for r in range(len(matrix)):
+                matrix[r][col] = 0

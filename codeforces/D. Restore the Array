@@ -1,0 +1,19 @@
+n = int(input())
+for _ in range(n):
+    
+    n_elem = int(input())
+    arr = list(map(int, input().split()))
+    res = [0] * n_elem
+    
+    res[0] = arr[0]
+    res[-1] = arr[-1]
+    
+    for i in range(n_elem - 2):
+        res[i+1] = min(arr[i], arr[i+1])
+        
+    # print(*res) # OR
+    print(" ".join(map(str, res)))
+"""
+Time Complexity: O(N)
+Space Complexity: O(1)
+"""

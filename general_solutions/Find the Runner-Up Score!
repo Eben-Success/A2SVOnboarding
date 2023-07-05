@@ -1,0 +1,24 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    
+    """"
+    2 3 6 6 5
+    
+    sort => 2, 3, 5, 6, 6
+    
+    sorting in reverse
+    6, 6, 5, 3, 2
+    
+    Second runner-up -> 5
+    """
+    
+    arr = list(arr)
+    arr.sort(reverse=True)
+    
+    first = arr[0]
+    for num in arr:
+        if num != first:
+            print(num)
+            break
+            

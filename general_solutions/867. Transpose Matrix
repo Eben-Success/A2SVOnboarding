@@ -1,0 +1,27 @@
+class Solution:
+    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+        
+        """
+        Time: O(nxm): n is len(row) && m is len(col)
+        Space: O(n)
+        """
+        
+        """
+        1. Traverse the matrix columnwise. 
+        2. Store the result in an array called transposed_matrix and return it.
+        """
+        
+        row, col = len(matrix), len(matrix[0])
+        transposed_matrix = []
+        
+        for c in range(col):
+            column = []
+            for r in range(row):
+                column.append(matrix[r][c])
+                
+            transposed_matrix.append(column)
+            
+        return transposed_matrix
+                
+            
+                

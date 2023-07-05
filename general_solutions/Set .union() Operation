@@ -1,0 +1,13 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+n_eng = int(input())
+
+eng_stu = set(map(int, input().split()))
+    
+    
+n_french = int(input())
+
+french_stu = set(map(int, input().split()))
+    
+print(len(eng_stu.union(french_stu)))
+    
