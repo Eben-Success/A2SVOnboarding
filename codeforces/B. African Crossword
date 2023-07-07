@@ -1,0 +1,28 @@
+"""
+Time: O(R*C(R+C))
+"""
+ 
+ 
+n, m = list(map(int, input().split()))
+ 
+matrix = []
+for _ in range(n):
+    row = list(map(str, input()))
+    matrix.append(row)
+ 
+res = []
+ 
+for r in range(n):
+    for c in range(m):
+        count = 0
+        for i in range(m):
+            if matrix[r][c] == matrix[r][i]:
+                count += 1
+        for j in range(n):
+            if matrix[r][c] == matrix[j][c]:
+                count += 1
+            
+        if count == 2:
+            res.append(matrix[r][c])
+            
+print("".join(res))
