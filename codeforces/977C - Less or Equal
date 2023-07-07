@@ -1,0 +1,22 @@
+n, k = list(map(int, input().split()))
+ 
+nums = list(map(int, input().split()))
+ 
+ 
+nums.sort()
+ 
+if k == 0:
+    res = nums[0] -1
+else:
+    res = nums[k-1]
+    
+count = 0
+ 
+for num in nums:
+    if num <= res:
+        count += 1
+ 
+if res < 1 or count != k:
+    print(-1)
+else:
+    print(res)
