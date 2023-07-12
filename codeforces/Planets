@@ -1,0 +1,17 @@
+from collections import defaultdict
+ 
+t = int(input())
+ 
+for _ in range(t):
+    n, c = list(map(int, input().split()))
+    
+    nums = list(map(int, input().split()))
+    count = 0
+    hash = defaultdict(int)
+    
+    for i in range(len(nums)):
+        hash[nums[i]] += 1
+        if hash[nums[i]] <= c:
+            count += 1
+        
+    print(count)
