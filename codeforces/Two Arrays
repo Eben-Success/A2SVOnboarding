@@ -1,0 +1,18 @@
+t = int(input())
+ 
+for _ in range(t):
+    n = int(input())
+    nums_a = list(map(int, input().split()))
+    nums_b = list(map(int, input().split()))
+    nums_a.sort()
+    nums_b.sort()
+    found = False
+    
+    for i in range(n):
+        if nums_a[i] != nums_b[i] and nums_a[i]+1 != nums_b[i]:
+            print("NO")
+            found = True
+            break
+            
+    if not found:
+        print("YES")
