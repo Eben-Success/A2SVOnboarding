@@ -1,0 +1,18 @@
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+
+        hashmap = {}
+        res = []
+
+        for idx, char in enumerate(s):
+            hashmap[char] = idx
+
+        l, r = 0, 0
+
+        for idx, char in enumerate(s):
+            r = max(r, hashmap[char])
+
+            if idx == r:
+                res.append(r - l + 1)
+                l = r + 1
+        return res
