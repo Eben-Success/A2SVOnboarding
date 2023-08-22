@@ -7,14 +7,14 @@ class Solution:
         aet: ["eat"]
         """
 
-        sorted_strs = ["".join(sorted(string)) for string in strs]
+        # sorted_strs = ["".join(sorted(string)) for string in strs]
 
         hashmap = defaultdict(list)
 
-        for i in range(len(strs)):
-            hashmap[sorted_strs[i]].append(strs[i])
+        for s in strs:
+            hashmap[tuple(sorted(s))].append(s)
 
-        return list(hashmap.values())
+        return hashmap.values()
             
 
 
