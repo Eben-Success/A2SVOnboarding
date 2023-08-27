@@ -38,8 +38,6 @@ class Solution:
                 cur2 = cur2.next
                 tail = tail.next
 
-        return dummy.next
-
 
     def reverseList(self, node):
 
