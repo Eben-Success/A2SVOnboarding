@@ -10,18 +10,17 @@ class NumMatrix:
         # Build a prefix sum matrix
         for r in range(row):
             for c in range(col):
-                self.prefix_matrix[r][c] = self.matrix[r][c]
+                # self.prefix_matrix[r][c] = self.matrix[r][c]
                 
-                if r > 0:
-                    self.prefix_matrix[r][c] += self.prefix_matrix[r-1][c]
+                # if r > 0:
+                #     self.prefix_matrix[r][c] += self.prefix_matrix[r-1][c]
                     
-                if c > 0:
-                    self.prefix_matrix[r][c] += self.prefix_matrix[r][c-1]
+                # if c > 0:
+                #     self.prefix_matrix[r][c] += self.prefix_matrix[r][c-1]
                     
-                if r > 0 and c > 0:
-                    self.prefix_matrix[r][c] -= self.prefix_matrix[r-1][c-1]
-
-        print(self.prefix_matrix)
+                # if r > 0 and c > 0:
+                #     self.prefix_matrix[r][c] -= self.prefix_matrix[r-1][c-1]
+                self.prefix_matrix[r][c] = self.prefix_matrix[r-1][c] + self.prefix_matrix[r][c-1] + self.matrix[r][c] - self.prefix_matrix[r-1][c-1]
                             
 
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
