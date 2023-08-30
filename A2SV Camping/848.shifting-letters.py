@@ -8,19 +8,24 @@
 class Solution:
     def shiftingLetters(self, s: str, shifts: List[int]) -> str:
         
-        chars = ['a', 'b', 'c', "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        shifts.reverse()
+        n = len(shifts)
+        prefix = [0] * n
         
-        freq = [0] * 26
+        prefix[0] = shifts[0]
         
-        for c in chars:
-            freq[ord(c) - ord('a')] += 1
+        for i in range(1, n):
+            prefix[i] = prefix[i-1] + shifts[i]
+        
+        prefix.reverse()
+        
+        res = ""
+        
+        for i in range(len(s)):
             
-        print(freq)
+            res += chr(ord('a') + (ord(s[i]) - ord('a') + prefix[i]) % 26)     
+        return res             
         
-        
-        # for num in s:
-        #     for i in range(num):
-        #         pass
         
 # @lc code=end
 
