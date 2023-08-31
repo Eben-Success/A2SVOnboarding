@@ -5,25 +5,33 @@
 #
 
 # @lc code=start
+
+import string
+
 class Solution:
     def shiftingLetters(self, s: str, shifts: List[int]) -> str:
         
-        shifts.reverse()
         n = len(shifts)
-        prefix = [0] * n
         
-        prefix[0] = shifts[0]
+        alphabets = list(string.ascii_lowercase)
         
-        for i in range(1, n):
-            prefix[i] = prefix[i-1] + shifts[i]
+        suffix = [0] * n
+        suffix[-1] = shifts[-1]
         
-        prefix.reverse()
+        idx = n - 2
+        
+        while idx > -1:
+            suffix[idx] = suffix[idx + 1] + shifts[idx]
+            idx -= 1
         
         res = ""
         
         for i in range(len(s)):
             
-            res += chr(ord('a') + (ord(s[i]) - ord('a') + prefix[i]) % 26)     
+            # res += chr(ord('a') + (ord(s[i]) - ord('a') + suffix[i]) % 26)     
+            
+            char_idx = alphabets.index(s[i])
+            res += alphabets[(char_idx + suffix[i]) % 26]
         return res             
         
         
