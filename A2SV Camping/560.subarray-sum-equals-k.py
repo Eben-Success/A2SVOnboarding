@@ -30,6 +30,14 @@ class Solution:
                 
         """
         # Intuition
+        Let's find the prefix sum of nums
+        nums =   [1, 2, 3]
+        prefix = [1, 3, 6]
+        
+        If we want to find the subarrys with 
+        
+        
+        
         1. Create a hashmap and add {0: 1}
         2. Initialize cur_sum, count and n.
         3. Iterate over the nums.
