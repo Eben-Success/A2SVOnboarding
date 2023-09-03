@@ -2,13 +2,22 @@
 # @lc app=leetcode id=560 lang=python3
 #
 # [560] Subarray Sum Equals K
-#
+
+
+# pref[i:j] = pref[j] - pref[i-1]
+# pref[j] - pref[i-1] = k
+# pref[j] - k = pref[i-1]
+
+# pref[j] - k = 0
+# pref[j] = k
+
+# a + b = c
+# b - c = a
 
 # @lc code=start
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        
-        
+
         cur_sum = 0
         count = 0
         n = len(nums)
@@ -18,7 +27,7 @@ class Solution:
         for num in nums:
             cur_sum += num
             
-            diff = cur_sum - k
+            diff = cur_sum - k 
             
             if diff in hashmap:
                 count += hashmap[diff]
