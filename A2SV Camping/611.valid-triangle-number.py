@@ -26,6 +26,14 @@ class Solution:
                     left += 1
                     
         return count
+    
+solve = Solution()
+
+nums1 = [2,2,3,4]
+nums = [4,2,3,4]
+nums = [0,1,1,1]
+
+print(solve.triangleNumber(nums1))
         
 # @lc code=end
 
