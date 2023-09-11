@@ -1,27 +1,18 @@
-from collections import deque
-
 class DataStream:
 
     def __init__(self, value: int, k: int):
-        self.queue = deque()
         self.value = value
         self.k = k
         self.count = 0
-
         
-    def consec(self, num: int) -> bool:
-        if len(self.queue) == self.k:
-            if self.queue[0] == self.value:
-                self.count -= 1
-            self.queue.popleft()
-        self.queue.append(num)
 
+    def consec(self, num: int) -> bool:
         if num == self.value:
             self.count += 1
+        else:
+            self.count = 0
 
-        return self.k == self.count
-
-
+        return self.count >= self.k
         
 
 
