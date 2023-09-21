@@ -1,42 +1,42 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
+        first = self.bisect_left(nums, target)
+        last = self.bisect_right(nums, target)
         
-        lower_bound = self.findBound(nums, target, True)
-        if (lower_bound == -1):
-            return [-1, -1]
+        return [first, last]
+    
+    def bisect_left(self, nums: List[int], target: int) -> int:
+        # minimization: high
+        n = len(nums) 
+        low, high = -1, n
         
-        upper_bound = self.findBound(nums, target, False)
-        
-        return [lower_bound, upper_bound]
-        
-    def findBound(self, nums: List[int], target: int, isFirst: bool) -> int:
-        
-        N = len(nums)
-        begin, end = 0, N - 1
-        while begin <= end:
-            mid = int((begin + end) / 2)    
+        while (low + 1) < high:
+            mid = ((high - low)//2) + low
             
-            if nums[mid] == target:
-                
-                if isFirst:
-                    # This means we found our lower bound.
-                    if mid == begin or nums[mid - 1] < target:
-                        return mid
-
-                    # Search on the left side for the bound.
-                    end = mid - 1
-                else:
-                    
-                    # This means we found our upper bound.
-                    if mid == end or nums[mid + 1] > target:
-                        return mid
-                    
-                    # Search on the right side for the bound.
-                    begin = mid + 1
-            
-            elif nums[mid] > target:
-                end = mid - 1
+            if nums[mid] >= target:
+                high = mid
             else:
-                begin = mid + 1
+                low = mid
+        if high == n or nums[high] != target:
+            return -1
         
-        return -1
+        return high
+    
+    
+    def bisect_right(self, nums: List[int], target: int) -> int:
+        # maximization: low
+        n = len(nums)
+        low, high = -1, n
+        
+        while (low + 1) < high:
+            mid = ((high - low) // 2) + low
+            
+            if nums[mid] <= target:
+                low = mid
+            else:
+                high = mid 
+                
+        if low == -1 or nums[low] != target:
+            return -1
+        return low
+        
