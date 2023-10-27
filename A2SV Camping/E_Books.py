@@ -1,22 +1,14 @@
+
 n, t = map(int, input().split())
+a = list(map(int, input().split()))
 
-# num of books
-# t = free times.
+l = ans = count = 0
+for r in range(n):
+    count += a[r]
 
-nums = list(map(int, input().split()))
+    while count > t:
+        count -= a[l]
+        l += 1
+    ans = max(ans, r-l+1)
+print(ans)
 
-nums.sort()
-cur = nums[0]
-count = 1
-if cur > t:
-    print(0)
-
-for i in range(1, n):
-    if cur + nums[i] >= t:
-        break
-    else:
-        cur += nums[i]
-        count += 1
-        
-print(count)
-    
